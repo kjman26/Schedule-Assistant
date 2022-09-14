@@ -1,0 +1,90 @@
+*{
+    font-family: sans-serif;
+    background-color: whitesmoke;
+}
+
+/* current */
+#timeStamp{
+    text-align: center;
+    font-size: 36px;   
+}
+
+h1{
+    text-align: center;
+}
+/* main container with hours, form, and aside buttons */
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* hour by hour list */
+ol{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+}
+
+.timeSlots{
+    border-right: solid;
+    border-top: dashed;
+    border-bottom: dashed;
+    line-height: 4em;
+    margin: .15em;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+/* form for user input */
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 13px;
+    justify-content: space-evenly;
+}
+
+.events{
+    line-height: 4em;
+    margin: .15em 1em;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+    font-size: 15px;
+}
+
+/* buttons */
+
+aside{
+    display: flex;
+    flex-direction: column;
+    margin-top: 13px;
+    justify-content: space-evenly;
+    width: 10%;
+}
+
+.save{
+    border: solid black;
+    line-height: 4em;
+    margin: .15em;
+    border-radius: 8px; 
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+}
+
+.save:hover{
+    cursor: pointer;
+    border: solid green;
+    
+}
+
+.save:active{
+    transform: scale(.75);
+   
+}
+
