@@ -5,23 +5,25 @@ $("#timeStamp").text(time)
 
 // set user input to local storage
 
+var save = document.querySelector('#save');
+var userInput = document.querySelector(".events");
 
 
-
-var saveBtn = document.getElementById('#save')
-
-
-//   when i click save, move the text content (aka value) to local storage
-var userEvent = document.querySelector("#events").value;
-function save(){
- saveBtn.addEventListener("click",function(event){
-    event.preventDefault();     
-    localStorage.setItem("userEventList", JSON.stringify(userEvent));
-        
-  });
+function saveGame(){
+   if(userInput.value){
+   userInput.textContent = 
+   localStorage.setItem("eventList", userInput.value);
+   console.log(userInput.value)}
 };
+
+save.addEventListener("click", saveGame);
+//   when i click save, move the text content (aka value) to local storage
+
+
+
+
     
-console.log(userEvent); 
+// ; 
 
 //get events
 
