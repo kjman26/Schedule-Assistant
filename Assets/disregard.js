@@ -1,16 +1,21 @@
 $(document).ready(function(){
 
+    var time = moment().format("MMMM Do, YYYY, hh:mm a")
+    $("#timeStamp").text(time)
+
+});
+
+//save on click of the buttons
 $('.saveBtn').on("click", function(){
     console.log(this);
        
-    var userEvent = $(".one").sibling()
+    var userEvent = $(".one").sibling(".one").value
     var time = $(this).parent().attr("id");
     
     localStorage.setItem(time, JSON.stringify(userEvent));
    console.log(userEvent.value);
 });
-});
-
+// ;get previous events
 $("#nineAM .one").val(localStorage.getItem("nineAM"));
 $("#tenAM .one").val(localStorage.getItem("tenAM"));
 $("#elevenAM .one").val(localStorage.getItem("elevenAM"));
@@ -22,24 +27,22 @@ $("#fourPM .one").val(localStorage.getItem("fourPM"));
 $("#fivePM .one").val(localStorage.getItem("fivePM"));
 
 
-// var userInput = document.querySelectorAll("one");
-var divs = document.querySelectorAll(".divs")
 function hourTracker() {
     //get current number of hours.
     var currentHour = moment().hour(); // use of moment.js
 
     // loop over time blocks
-    $(".time-block").each(function () {
-        var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-        console.log( blockHour, currentHour)
+    $(".timeSlot").each(function () {
+        var hourBlock = parseInt($(this).attr("id").split("hour")[1]);
+        console.log(hourBlock, currentHour)
 
         //check if we've moved past this time, click into css/html given classes of past, present, or future
-        if (blockHour < currentHour) {
+        if (hourBlock < currentHour) {
             $(this).addClass("past");
             $(this).removeClass("future");
             $(this).removeClass("present");
         }
-        else if (blockHour === currentHour) {
+        else if (hourBlock === currentHour) {
             $(this).removeClass("past");
             $(this).addClass("present");
             $(this).removeClass("future");
@@ -48,22 +51,7 @@ function hourTracker() {
             $(this).removeClass("present");
             $(this).removeClass("past");
             $(this).addClass("future");
-        }
-    })
-}
-hourTracker(); //re-run function
-// function saveEvent(){
-//    for (i=0; i<userInput.length; i++){
-//    localStorage.setItem("eventList", userInput[i].value);
-//    console.log(userInput[i].value)}
-// };   
-// });
-// if(userInput.id === $('.save').dataset){
-//  divs.forEach($(".save")).on("click", saveEvent); 
-// }
-// else{
-//     console.log('wrong')
-// };
-
-// save.addEventListener("click", saveGame);
-// console.log(userInput.value)
+        };
+    });
+};
+hourTracker(); 

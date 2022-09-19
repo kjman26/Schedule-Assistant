@@ -3,7 +3,7 @@
     background-color: whitesmoke;
 }
 
-/* current */
+/* current date and time*/
 #timeStamp{
     text-align: center;
     font-size: 36px;   
@@ -13,11 +13,6 @@ h1{
     text-align: center;
 }
 /* main container with hours, form, and aside buttons */
-main{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
 /* hour by hour list */
 ol{
@@ -48,7 +43,12 @@ form{
     justify-content: space-evenly;
 }
 
-.events{
+input{
+    line-height: 4em;
+    width: 80%;
+}
+
+.tasks{
     line-height: 4em;
     margin: .15em 1em;
     border-radius: 8px;
@@ -67,7 +67,7 @@ aside{
     width: 10%;
 }
 
-.save{
+.saveBtn{
     border: solid black;
     line-height: 4em;
     margin: .15em;
@@ -77,17 +77,25 @@ aside{
     font-weight: bold;
 }
 
-.save:hover{
+.saveBtn:hover{
     cursor: pointer;
     border: solid green;
     
 }
 
-.save:active{
+.saveBtn:active{
     transform: scale(.75);
    
 }
 
+.timeStamp{
+    margin-right: 12px;
+    color: black;
+    font-size: 30px;
+    line-height: 3em;
+    width: 10%;
+
+}
 /* time blocks */
 .past {
     background-color: #a7a5a5;

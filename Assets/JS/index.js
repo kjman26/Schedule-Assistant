@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var time = moment().format("MMMM Do, YYYY, HH:mm")
+    var time = moment().format("MMMM Do, YYYY, hh:mm:ss p")
     $("#timeStamp").text(time)
 
 })
