@@ -88,3 +88,18 @@ aside{
    
 }
 
+/* time blocks */
+.past {
+    background-color: #a7a5a5;
+    color: white;
+  }
+  
+  .present {
+    background-color: #ff6961;
+    color: white;
+  }
+  
+  .future {
+    background-color: #77dd77;
+    color: white;
+  }
