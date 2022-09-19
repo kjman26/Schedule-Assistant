@@ -3,7 +3,7 @@
 Schedule_Challenge_Chris_Kang
 [Link: Click here to see Schedule Challenge](" ")
 
-![ScreenShot]("C:\Users\kjman\Desktop\pictures\screenshot-challenge5.png")
+![Screenshot](./Assets/images/screenshot-challenge5.png)
 
 Purpose: The purpose of this project is to create a daily planner that allows the user to create an efficient schedule amidst the hecticness of life.
 

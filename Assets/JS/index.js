@@ -1,54 +1,48 @@
 $(document).ready(function(){
 
-    var time = moment().format("MMMM Do, YYYY, hh:mm:ss p")
+    var time = moment().format("MMMM Do, YYYY, hh:mm a")
     $("#timeStamp").text(time)
 
-})
-//current date and time
+});
 
+//save on click of the buttons
+$('.saveBtn').on("click", function(){
+    console.log(this);
+       
+    var userEvent = $(".one").sibling(".one").value
+    var time = $(this).parent().attr("id");
+    
+    localStorage.setItem(time, JSON.stringify(userEvent));
+   console.log(userEvent.value);
+});
+// ;get previous events
+$("#nineAM .one").val(localStorage.getItem("nineAM"));
+$("#tenAM .one").val(localStorage.getItem("tenAM"));
+$("#elevenAM .one").val(localStorage.getItem("elevenAM"));
+$("#twelvePM .one").val(localStorage.getItem("twelvePM"));
+$("#onePM .one").val(localStorage.getItem("onePM"));
+$("#twoPM .one").val(localStorage.getItem("twoPM"));
+$("#threePM .one").val(localStorage.getItem("threePM"));
+$("#fourPM .one").val(localStorage.getItem("fourPM"));
+$("#fivePM .one").val(localStorage.getItem("fivePM"));
 
-
-// set user input to local storage
-var userInput = document.getElementsByClassName(".events");
-
-function saveEvent(){
-    for (i=0; i<userInput.length; i++){
-     if(userInput[i].value){
-    localStorage.setItem("eventList", userInput[i].value);
-    $(".one").text = userInput[i]
-    console.log(userInput[i].value)}
-    };
- };
-
- $(".save").on("click",saveEvent);
-
-
-
-
-//get events
-function getEvents(){
-    localStorage.getItem("eventList")
-};
-getEvents
-
-//color-coding
 
 function hourTracker() {
     //get current number of hours.
     var currentHour = moment().hour(); // use of moment.js
 
     // loop over time blocks
-    $(".time-block").each(function () {
-        var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-        console.log( blockHour, currentHour)
+    $(".timeSlot").each(function () {
+        var hourBlock = parseInt($(this).attr("id").split("hour")[1]);
+        console.log(hourBlock, currentHour)
 
         //check if we've moved past this time, click into css/html given classes of past, present, or future
-        if (blockHour < currentHour) {
+        if (hourBlock < currentHour) {
             $(this).addClass("past");
             $(this).removeClass("future");
             $(this).removeClass("present");
         }
-        else if (blockHour === currentHour) {
+        else if (hourBlock === currentHour) {
             $(this).removeClass("past");
             $(this).addClass("present");
             $(this).removeClass("future");
@@ -57,11 +51,7 @@ function hourTracker() {
             $(this).removeClass("present");
             $(this).removeClass("past");
             $(this).addClass("future");
-        }
-    })
-}
-hourTracker(); //re-run function
-
-
-//does .value = the text from the input box?
-//why is value saying undefined?
+        };
+    });
+};
+hourTracker(); 
