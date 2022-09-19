@@ -1,16 +1,19 @@
-var save = document.querySelector('#save');
+var save = document.querySelectorAll('.save');
 
-var userInput = document.querySelector("#one");
+var userInput = document.querySelectorAll(".one");
 
 
-function saveGame(){
-   if(userInput.value){
-//    userInput.textContent = 
-   localStorage.setItem("eventList", userInput.value);
-   console.log(userInput.value)}
+function saveEvent(){
+   for (i=0; i<userInput.length; i++){
+    if(userInput[i].value){
+   localStorage.setItem("eventList", userInput[i].value);
+   console.log(userInput[i].value)}
+}
 };
 
-save.addEventListener("click", saveGame);
-console.log(userInput.value)
+save.forEach(save => save.addEventListener('click', saveEvent())
+);
+// save.addEventListener("click", saveGame);
+// console.log(userInput.value)
 
 

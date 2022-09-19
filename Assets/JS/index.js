@@ -4,11 +4,7 @@ $("#timeStamp").text(time)
 
 
 // set user input to local storage
-
-var save = document.querySelector('#save');
-var userInput = document.querySelector(".events");
-
-
+var userInput = document.getElementsByClassName(".events");
 function saveGame(){
    if(userInput.value){
    userInput.textContent = 
@@ -16,7 +12,20 @@ function saveGame(){
    console.log(userInput.value)}
 };
 
-save.addEventListener("click", saveGame);
+var save = document.querySelectorAll('.save');
+function eventHandler(){
+    for (i=0; i<save.length; i++){
+    save[i].addEventListener("click", saveGame(i))
+};
+};
+
+
+
+
+
+
+
+
 //   when i click save, move the text content (aka value) to local storage
 
 
