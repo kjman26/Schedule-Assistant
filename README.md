@@ -1,7 +1,7 @@
 # Schedule-Assistant
 
 Schedule_Challenge_Chris_Kang
-[Link: Click here to see Schedule Challenge](" ")
+[Link: Click here to see Schedule Challenge]("https://kjman26.github.io/Schedule-Assistant/")
 
 ![Screenshot](./Assets/images/screenshot-challenge5.png)
 

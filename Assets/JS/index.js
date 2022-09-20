@@ -5,26 +5,18 @@ $(document).ready(function(){
 
 });
 
-//save on click of the buttons
-//$('.saveBtn').click(function(){
-  //  console.log(this);
-//     var userEvent = $(".saveBtn").siblings(".saveBtn").value;
-//     var time = $(this).parent().attr("id");
-    
-//     localStorage.setItem(time, $(".saveBtn").val());
-//    console.log(userEvent.value);
-
-//} 
-//});
+// save event - set to local storage
  const saveToDo =(event)=>{
-    const toDoTime = $(event.currentTarget).parent().attr('id');
-    const toDo = $(event.currentTarget).siblings('input').val();
+    const toDoTime = (event.target).parent().attr('id');
+    const toDo = $(event.target).siblings('input').val();
     
     localStorage.setItem(toDoTime,JSON.stringify(toDo))
  };
 
+ //click to save 
 $(".saveBtn").on('click',(event)=>{
     event.preventDefault();
+    toDo.text(toDo.val());
     saveToDo();
 });
 // get previous events
