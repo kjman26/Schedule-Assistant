@@ -6,25 +6,37 @@ $(document).ready(function(){
 });
 
 //save on click of the buttons
-$('.saveBtn').on("click", function(){
-    console.log(this);
-       
-    var userEvent = $(".one").sibling(".one").value
-    var time = $(this).parent().attr("id");
+//$('.saveBtn').click(function(){
+  //  console.log(this);
+//     var userEvent = $(".saveBtn").siblings(".saveBtn").value;
+//     var time = $(this).parent().attr("id");
     
-    localStorage.setItem(time, JSON.stringify(userEvent));
-   console.log(userEvent.value);
+//     localStorage.setItem(time, $(".saveBtn").val());
+//    console.log(userEvent.value);
+
+//} 
+//});
+ const saveToDo =(event)=>{
+    const toDoTime = $(event.currentTarget).parent().attr('id');
+    const toDo = $(event.currentTarget).siblings('input').val();
+    
+    localStorage.setItem(toDoTime,JSON.stringify(toDo))
+ };
+
+$(".saveBtn").on('click',(event)=>{
+    event.preventDefault();
+    saveToDo();
 });
-// ;get previous events
-$("#nineAM .one").val(localStorage.getItem("nineAM"));
-$("#tenAM .one").val(localStorage.getItem("tenAM"));
-$("#elevenAM .one").val(localStorage.getItem("elevenAM"));
-$("#twelvePM .one").val(localStorage.getItem("twelvePM"));
-$("#onePM .one").val(localStorage.getItem("onePM"));
-$("#twoPM .one").val(localStorage.getItem("twoPM"));
-$("#threePM .one").val(localStorage.getItem("threePM"));
-$("#fourPM .one").val(localStorage.getItem("fourPM"));
-$("#fivePM .one").val(localStorage.getItem("fivePM"));
+// get previous events
+$("#hour9 .saveBtn").val(localStorage.getItem("nineAM"));
+$("#hour10 .saveBtn").val(localStorage.getItem("tenAM"));
+$("#hour11 .saveBtn").val(localStorage.getItem("elevenAM"));
+$("#hour12 .saveBtn").val(localStorage.getItem("twelvePM"));
+$("#hour13 .saveBtn").val(localStorage.getItem("saveBtnPM"));
+$("#hour14 .saveBtn").val(localStorage.getItem("twoPM"));
+$("#hour15 .saveBtn").val(localStorage.getItem("threePM"));
+$("#hour16 .saveBtn").val(localStorage.getItem("fourPM"));
+$("#hour17 .saveBtn").val(localStorage.getItem("fivePM"));
 
 
 function hourTracker() {
